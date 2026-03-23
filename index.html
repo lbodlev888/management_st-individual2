@@ -114,13 +114,60 @@
 
     /* Print styles */
     @media print {
-      body { background: white; color: black; }
-      #app-header, #controls-panel, #toolbar { display: none !important; }
-      #album-preview { box-shadow: none !important; background: white !important; }
-      .photo-card .overlay { opacity: 1 !important; }
-      #album-title-display { color: black !important; }
-      #album-date-display { color: #555 !important; }
-      .caption-input { color: black !important; border-bottom-color: #333 !important; }
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      body { background: white !important; color: black !important; }
+      #app-header, #controls-panel { display: none !important; }
+      #drop-zone { display: none !important; }
+
+      #album-preview {
+        display: block !important;
+        background: white !important;
+        box-shadow: none !important;
+      }
+
+      #album-header {
+        border-color: #ddd !important;
+      }
+
+      #album-title-display { color: #111 !important; }
+      #album-date-display  { color: #666 !important; }
+      #photo-count         { color: #666 !important; }
+
+      #photo-grid {
+        padding: 8px !important;
+      }
+
+      .photo-card {
+        aspect-ratio: unset !important;
+        height: 180px !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+        border-radius: 2px !important;
+        overflow: hidden !important;
+      }
+
+      .photo-card img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        display: block !important;
+      }
+
+      /* Show caption below image instead of overlay */
+      .photo-card .overlay {
+        opacity: 1 !important;
+        background: rgba(0,0,0,0) !important;
+        position: static !important;
+        padding: 4px 0 0 !important;
+      }
+
+      .caption-input {
+        color: #333 !important;
+        border-bottom-color: #999 !important;
+        width: 100% !important;
+      }
+
+      .btn-delete { display: none !important; }
     }
   </style>
 </head>
